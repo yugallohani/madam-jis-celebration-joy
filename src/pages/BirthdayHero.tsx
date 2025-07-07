@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Heart, Sparkles, Gift } from "lucide-react";
+import { Heart, Sparkles, Gift, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const BirthdayHero = () => {
+const BirthdayHeroPage = () => {
   const [showLetter, setShowLetter] = useState(false);
 
   const toggleLetter = () => {
@@ -123,9 +124,23 @@ const BirthdayHero = () => {
             )}
           </div>
         </Card>
+
+        {/* Navigation to Next Page */}
+        <div className="pt-8">
+          <Link to="/memories">
+            <Button 
+              variant="celebration" 
+              size="lg" 
+              className="rounded-full font-semibold text-lg px-8 py-4 animate-bounce-gentle"
+            >
+              Continue to Memories
+              <ArrowRight className="ml-2 animate-pulse" size={20} />
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-export default BirthdayHero;
+export default BirthdayHeroPage;

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Download, Heart, Camera } from "lucide-react";
+import { Download, Heart, Camera, ArrowRight, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import coupleMemory1 from "@/assets/couple-memory-1.jpg";
 import coupleMemory2 from "@/assets/couple-memory-2.jpg";
 
-const MirrorMemories = () => {
+const MemoriesPage = () => {
   const [selectedMemory, setSelectedMemory] = useState(0);
 
   const memories = [
@@ -50,6 +51,22 @@ const MirrorMemories = () => {
       </div>
 
       <div className="max-w-4xl mx-auto text-center space-y-8 z-10">
+        {/* Navigation Header */}
+        <div className="flex justify-between items-center w-full mb-8">
+          <Link to="/">
+            <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-primary">
+              <ArrowLeft className="mr-2" size={20} />
+              Back
+            </Button>
+          </Link>
+          <Link to="/celebrate">
+            <Button variant="outline" size="lg" className="text-primary border-primary hover:bg-primary hover:text-white">
+              Next
+              <ArrowRight className="ml-2" size={20} />
+            </Button>
+          </Link>
+        </div>
+
         {/* Section Header */}
         <div className="space-y-4">
           <h2 className="text-5xl md:text-6xl font-bold bg-gradient-romantic bg-clip-text text-transparent">
@@ -126,9 +143,23 @@ const MirrorMemories = () => {
             </div>
           ))}
         </div>
+
+        {/* Navigation to Next Page */}
+        <div className="pt-8">
+          <Link to="/celebrate">
+            <Button 
+              variant="celebration" 
+              size="lg" 
+              className="rounded-full font-semibold text-lg px-8 py-4 animate-bounce-gentle"
+            >
+              Light Up My Life
+              <ArrowRight className="ml-2 animate-pulse" size={20} />
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-export default MirrorMemories;
+export default MemoriesPage;

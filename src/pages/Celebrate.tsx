@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Lightbulb, Star, Sparkles, Zap } from "lucide-react";
+import { Lightbulb, Star, Sparkles, Zap, ArrowRight, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 import birthdayCake from "@/assets/birthday-cake.jpg";
 
-const LightUpLife = () => {
+const CelebratePage = () => {
   const [lightsOn, setLightsOn] = useState(false);
 
   const toggleLights = () => {
@@ -55,6 +56,36 @@ const LightUpLife = () => {
       )}
 
       <div className="max-w-4xl mx-auto text-center space-y-12 z-10">
+        {/* Navigation Header */}
+        <div className="flex justify-between items-center w-full mb-8">
+          <Link to="/memories">
+            <Button 
+              variant="ghost" 
+              size="lg" 
+              className={`transition-colors duration-500 ${
+                lightsOn ? 'text-white/80 hover:text-white' : 'text-muted-foreground hover:text-primary'
+              }`}
+            >
+              <ArrowLeft className="mr-2" size={20} />
+              Back
+            </Button>
+          </Link>
+          <Link to="/finale">
+            <Button 
+              variant={lightsOn ? "secondary" : "outline"} 
+              size="lg" 
+              className={`transition-all duration-500 ${
+                lightsOn 
+                  ? 'bg-white/20 text-white border-white/20 hover:bg-white/30' 
+                  : 'text-primary border-primary hover:bg-primary hover:text-white'
+              }`}
+            >
+              Next
+              <ArrowRight className="ml-2" size={20} />
+            </Button>
+          </Link>
+        </div>
+
         {/* Section Header */}
         <div className="space-y-6">
           <h2 className={`text-5xl md:text-6xl font-bold transition-all duration-1000 ${
@@ -167,9 +198,27 @@ const LightUpLife = () => {
             </div>
           </Card>
         )}
+
+        {/* Navigation to Next Page */}
+        <div className="pt-8">
+          <Link to="/finale">
+            <Button 
+              variant={lightsOn ? "secondary" : "celebration"}
+              size="lg" 
+              className={`rounded-full font-semibold text-lg px-8 py-4 transition-all duration-500 ${
+                lightsOn 
+                  ? 'bg-white/20 text-white hover:bg-white/30 animate-bounce-gentle' 
+                  : 'animate-bounce-gentle'
+              }`}
+            >
+              Grand Finale
+              <ArrowRight className="ml-2 animate-pulse" size={20} />
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-export default LightUpLife;
+export default CelebratePage;
