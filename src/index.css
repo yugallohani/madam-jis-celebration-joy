@@ -8,50 +8,64 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 325 50% 95%;
+    --foreground: 325 30% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 325 30% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 325 30% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 325 85% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 325 20% 90%;
+    --secondary-foreground: 325 30% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 325 15% 92%;
+    --muted-foreground: 325 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 330 90% 70%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 325 25% 85%;
+    --input: 325 25% 90%;
+    --ring: 325 85% 60%;
 
     --radius: 0.5rem;
 
+    /* Celebration Colors */
+    --celebration-pink: 325 85% 65%;
+    --celebration-rose: 340 80% 70%;
+    --celebration-gold: 45 90% 70%;
+    --celebration-purple: 290 70% 75%;
+    
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(325, 85%, 65%), hsl(340, 80%, 70%));
+    --gradient-celebration: linear-gradient(135deg, hsl(325, 85%, 65%), hsl(290, 70%, 75%));
+    --gradient-soft: linear-gradient(180deg, hsl(325, 50%, 95%), hsl(325, 40%, 90%));
+    --gradient-memories: linear-gradient(135deg, hsl(340, 60%, 85%), hsl(325, 50%, 90%));
+    
+    /* Shadows */
+    --shadow-romantic: 0 10px 40px -10px hsl(325, 85%, 60%, 0.3);
+    --shadow-celebration: 0 15px 35px -5px hsl(325, 85%, 60%, 0.4);
+    --shadow-glow: 0 0 30px hsl(325, 85%, 70%, 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -101,5 +115,26 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-from), var(--tw-gradient-to));
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

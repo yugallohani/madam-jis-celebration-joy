@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				celebration: {
+					pink: 'hsl(var(--celebration-pink))',
+					rose: 'hsl(var(--celebration-rose))',
+					gold: 'hsl(var(--celebration-gold))',
+					purple: 'hsl(var(--celebration-purple))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +90,52 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'bounce-gentle': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
+				},
+				'pulse-heart': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' }
+				},
+				'confetti-fall': {
+					'0%': { transform: 'translateY(-100vh) rotate(0deg)', opacity: '1' },
+					'100%': { transform: 'translateY(100vh) rotate(360deg)', opacity: '0' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
+				},
+				'twinkle': {
+					'0%, 100%': { opacity: '0.3' },
+					'50%': { opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
+				'pulse-heart': 'pulse-heart 2s ease-in-out infinite',
+				'confetti-fall': 'confetti-fall 3s linear infinite',
+				'shimmer': 'shimmer 2s linear infinite',
+				'twinkle': 'twinkle 2s ease-in-out infinite'
+			},
+			backgroundImage: {
+				'gradient-romantic': 'var(--gradient-romantic)',
+				'gradient-celebration': 'var(--gradient-celebration)',
+				'gradient-soft': 'var(--gradient-soft)',
+				'gradient-memories': 'var(--gradient-memories)'
+			},
+			boxShadow: {
+				'romantic': 'var(--shadow-romantic)',
+				'celebration': 'var(--shadow-celebration)',
+				'glow': 'var(--shadow-glow)'
 			}
 		}
 	},
